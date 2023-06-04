@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div  class="navbar" id="Navbar">Navbar</div>
+    <section>
+            <div class="section1--container">
+                <select id="transaction">
+                    <option>Select</option>
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+
+                </select>
+                
+                <select id="modifyIncome" class="modifyIncome">
+                    <option>Select</option>
+                    <option value="add">Add</option>
+                    <option value="subtract">Remove </option>
+                    
+                </select>
+
+                <form id="formIncome" class="formIncome">
+                    <input id="inputfield" type="text" placeholder="Enter the amount"/>
+                    <input type="submit" id="submit"/>
+                </form>
+
+                <select id="modifyExpense" class="modifyExpense">
+                        <option>Select</option>
+                        <option value="add">Add</option>
+                        <option value="edit">Edit </option>
+                        <option value="delete">Delete </option>
+                </select>
+
+                <form id="formExpense" class="formExpense">
+                    <input id="itemInput" type="text" placeholder="Enter the item name"/>
+                    <input id="amtInput" type="text" placeholder="Enter the amount"/>
+                    <input type="submit" id="submit--expense"/>
+                </form>
+            
+
+                    <form id="editInput">
+                        <input id="editItem" type="text" placeholder="Enter the item name you want to edit"/>
+                        
+                        <input type="submit" id="editSubmit1"/>
+                    </form>
+
+                <form id="editChanges">
+                    <input type="text" placeholder="Enter the new item name" id="edit--1"  />
+                    <input type="text" placeholder="Enter the new item amount" id="edit--2" />
+                    <input type="submit" id="editSubmit2"/>
+                 </form>
+
+
+            </div>
+            <div>
+                <div id="balance">Balance</div>
+                 <button>
+                    Current Balance
+                 </button>
+                 <button>View Expenditure Chart</button>
+
+                 <div id="current-balance">
+                       
+                 </div>
+                 <div id="expenditure">
+                    <table id="table">
+                        <header>
+                            <td>Item</td>
+                            <td>Amount Spent</td>
+                        </header>
+                        <tr>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+
+
+
+            </div>
+    </section>
+    <div>
+Footer
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
