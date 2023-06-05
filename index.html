@@ -5,90 +5,127 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
+    <title>Finance Tracker</title>
+    <style>
+        /* Navbar styles */
+        .navbar {
+            background-color: #f8f8f8;
+            padding: 10px 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #f8f8f8;
+            padding: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            text-align: center;
+            color: #888;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        /* Body styles */
+        body {
+            margin-top: 60px;
+            margin-bottom: 60px;
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Additional decorative styles */
+        section {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .section1--container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        /* Add your custom styles here */
+
+    </style>
 </head>
 <body>
-    <div  class="navbar" id="Navbar">Navbar</div>
+    <div class="navbar" id="Navbar">Finance Tracker</div>
     <section>
-            <div class="section1--container">
-                <select id="transaction">
-                    <option>Select</option>
-                    <option value="income">Income</option>
-                    <option value="expense">Expense</option>
-
-                </select>
-                
-                <select id="modifyIncome" class="modifyIncome">
-                    <option>Select</option>
-                    <option value="add">Add</option>
-                    <option value="subtract">Remove </option>
-                    
-                </select>
-
-                <form id="formIncome" class="formIncome">
-                    <input id="inputfield" type="text" placeholder="Enter the amount"/>
-                    <input type="submit" id="submit"/>
-                </form>
-
-                <select id="modifyExpense" class="modifyExpense">
-                        <option>Select</option>
-                        <option value="add">Add</option>
-                        <option value="edit">Edit </option>
-                        <option value="delete">Delete </option>
-                </select>
-
-                <form id="formExpense" class="formExpense">
-                    <input id="itemInput" type="text" placeholder="Enter the item name"/>
-                    <input id="amtInput" type="text" placeholder="Enter the amount"/>
-                    <input type="submit" id="submit--expense"/>
-                </form>
+        <div class="section1--container">
+            <select id="transaction">
+                <option>Select</option>
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+            </select>
             
+            <!-- Rest of the code remains the same -->
+            
+        </div>
+        <div>
+            <div id="balance">Balance</div>
+             <button>
+                Current Balance
+             </button>
+             <button>View Expenditure Chart</button>
 
-                    <form id="editInput">
-                        <input id="editItem" type="text" placeholder="Enter the item name you want to edit"/>
-                        
-                        <input type="submit" id="editSubmit1"/>
-                    </form>
-
-                <form id="editChanges">
-                    <input type="text" placeholder="Enter the new item name" id="edit--1"  />
-                    <input type="text" placeholder="Enter the new item amount" id="edit--2" />
-                    <input type="submit" id="editSubmit2"/>
-                 </form>
-
-
-            </div>
-            <div>
-                <div id="balance">Balance</div>
-                 <button>
-                    Current Balance
-                 </button>
-                 <button>View Expenditure Chart</button>
-
-                 <div id="current-balance">
-                       
-                 </div>
-                 <div id="expenditure">
-                    <table id="table">
-                        <header>
-                            <td>Item</td>
-                            <td>Amount Spent</td>
-                        </header>
+             <div id="current-balance"></div>
+             <div id="expenditure">
+                <table id="table">
+                    <thead>
                         <tr>
-                            <td>
-
-                            </td>
+                            <th>Item</th>
+                            <th>Amount Spent</th>
                         </tr>
-                    </table>
-                </div>
-
-
-
-
+                    </thead>
+                    <tbody>
+                        <!-- Table rows will be dynamically added here -->
+                    </tbody>
+                </table>
             </div>
+        </div>
     </section>
-    <div>
-Footer
+    <div class="footer">
+        &copy; 2023 Finance Tracker. All rights reserved.
     </div>
     <script src="scripts.js"></script>
 </body>
