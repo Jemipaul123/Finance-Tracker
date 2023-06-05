@@ -10,7 +10,8 @@
     <style>
         /* Navbar styles */
         .navbar {
-            background-color: #f8f8f8;
+            background-color: #3949AB;
+            color: #fff;
             padding: 10px 20px;
             font-family: 'Poppins', sans-serif;
             font-size: 20px;
@@ -25,12 +26,12 @@
 
         /* Footer styles */
         .footer {
-            background-color: #f8f8f8;
+            background-color: #3949AB;
+            color: #fff;
             padding: 20px;
             font-family: 'Poppins', sans-serif;
             font-size: 14px;
             text-align: center;
-            color: #888;
             box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
             position: fixed;
             bottom: 0;
@@ -41,9 +42,9 @@
         /* Body styles */
         body {
             margin-top: 60px;
-            margin-bottom: 60px;
+            margin-bottom: 100px; /* Increased margin to accommodate footer */
             font-family: 'Poppins', sans-serif;
-            background-color: #fff;
+            background-color: #F3F5F9;
             color: #333;
         }
 
@@ -59,7 +60,7 @@
         }
 
         button {
-            background-color: #333;
+            background-color: #546E7A;
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -68,24 +69,79 @@
             margin-top: 20px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            border-radius: 5px;
         }
 
         button:hover {
-            background-color: #555;
+            background-color: #455A64;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
         }
 
+        table th,
         table td {
             padding: 10px;
             border: 1px solid #ccc;
+            font-family: 'Poppins', sans-serif;
         }
 
         /* Add your custom styles here */
 
+        /* Select button styles */
+        select {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 150px;
+            margin-right: 10px;
+        }
+
+        /* Added colors */
+        #balance {
+            color: #3949AB;
+        }
+
+        #expenditure {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* Added item and amount colors */
+        #table td:first-child {
+            color: #3949AB;
+        }
+
+        #table td:last-child {
+            color: #EF5350;
+        }
+
+        /* Modified button styles */
+        input[type="submit"],
+        input[type="button"] {
+            background-color: #3949AB;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover,
+        input[type="button"]:hover {
+            background-color: #283593;
+        }
     </style>
 </head>
 <body>
@@ -98,15 +154,47 @@
                 <option value="expense">Expense</option>
             </select>
             
-            <!-- Rest of the code remains the same -->
-            
+            <select id="modifyIncome" class="modifyIncome">
+                <option>Select</option>
+                <option value="add">Add</option>
+                <option value="subtract">Remove</option>
+            </select>
+
+            <form id="formIncome" class="formIncome">
+                <input id="inputfield" type="text" placeholder="Enter the amount"/>
+                <input type="submit" value="Add" id="submit"/>
+            </form>
+
+            <select id="modifyExpense" class="modifyExpense">
+                <option>Select</option>
+                <option value="add">Add</option>
+                <option value="edit">Edit</option>
+                <option value="delete">Delete</option>
+            </select>
+
+            <form id="formExpense" class="formExpense">
+                <input id="itemInput" type="text" placeholder="Enter the item name"/>
+                <input id="amtInput" type="text" placeholder="Enter the amount"/>
+                <input type="submit" value="Add" id="submit--expense"/>
+            </form>
+
+            <form id="editInput">
+                <input id="editItem" type="text" placeholder="Enter the item name you want to edit"/>
+                <input type="submit" value="Edit" id="editSubmit1"/>
+            </form>
+
+            <form id="editChanges">
+                <input type="text" placeholder="Enter the new item name" id="edit--1"  />
+                <input type="text" placeholder="Enter the new item amount" id="edit--2" />
+                <input type="submit" value="Save" id="editSubmit2"/>
+            </form>
         </div>
         <div>
             <div id="balance">Balance</div>
              <button>
-                Current Balance
+                Current Balance 
              </button>
-             <button>View Expenditure Chart</button>
+             <button id="viewExpenditureChart">View Expenditure Chart</button>
 
              <div id="current-balance"></div>
              <div id="expenditure">
@@ -117,7 +205,7 @@
                             <th>Amount Spent</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="expenditure-data">
                         <!-- Table rows will be dynamically added here -->
                     </tbody>
                 </table>
